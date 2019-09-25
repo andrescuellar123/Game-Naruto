@@ -196,7 +196,7 @@ public class Clan {
 	 * return upda
 	 */
 	
-	public boolean updateCharacterName(Charact t) throws MyException{
+	public boolean ModifyCharacterName(Charact t) throws MyException{
 		Charact act = first;
 		boolean upda = false;
 		if(repetitiveCharacter(t)== false) {
@@ -220,7 +220,7 @@ public class Clan {
 	 * return upda
 	 */
 	
-	public boolean updateCharacterPersonality(Charact t) throws MyException{
+	public boolean ModifyCharacterPersonality(Charact t) throws MyException{
 		Charact act = first;
 		boolean upda = false;
 		if(repetitiveCharacter(t)== false) {
@@ -242,7 +242,7 @@ public class Clan {
 	 * @param t a new Charact
 	 * return upda
 	 */
-	public boolean updateCharacterCreationDate(Charact t) throws MyException{
+	public boolean ModifyCharacterCreationDate(Charact t) throws MyException{
 		Charact act = first;
 		boolean upda = false;
 		if(repetitiveCharacter(t)== false) {
@@ -266,7 +266,7 @@ public class Clan {
 	 * return act
 	 */
 	
-	public boolean updatePower(Charact t)throws MyException {
+	public boolean ModifyCharacterPower(Charact t)throws MyException {
 		Charact act = first;
 		boolean upda = false;
 		if(first != null) {
@@ -312,8 +312,9 @@ public class Clan {
 		Charact act = first;
 		while( ad==true && act != null ) {
 			if(act.getName().equals(name)) {
-				ad = act.addTechnique(tec);
+				act.addTechnique(tec);
 				act = act.getNext();
+				ad=true;
 			}
 			else
 				throw new MyException("no se puede agregar la tecnica");
@@ -347,12 +348,12 @@ public class Clan {
 	 * return upda
 	 */
 	
-	public boolean updateTechniqueName(Technique t)throws MyException {
+	public boolean ModifyTechniqueName(Technique t)throws MyException {
 		Charact act = first;
 		boolean upda = false;
 			if(act != null) {
-				while(act != null && !upda) {
-					if(act.updateTechniqueName(t)) {
+				while(act != null && upda == true) {
+					if(act.ModifyTechniqueName(t)) {
 						
 						upda = true;
 					}
@@ -369,12 +370,12 @@ public class Clan {
 	 * return upda
 	 */
 	
-	public boolean updateTechniqueFactor(Technique t) throws MyException{
+	public boolean ModifyTechniqueFactor(Technique t) throws MyException{
 		Charact act = first;
 		boolean upda = false;
 			if(act != null) {
-				while(act != null && !upda) {
-					if(act.updateTechniqueFactor(t)) {
+				while(act != null && upda == false) {
+					if(act.ModifyTechniqueFactor(t)) {
 						
 						upda = true;
 					}

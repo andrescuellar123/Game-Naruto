@@ -314,6 +314,7 @@ public class Charact implements Comparable<Charact>{
 			
 			 if(first.getName().equals(tec.getName()) == true) {
 				first = first.getNex();
+				bor =true;
 			}else {
 				while( first!= null && bor == true && first.getNex() != null ) {
 					if(first.getNex().getName().equals(tec.getName())) {
@@ -322,12 +323,9 @@ public class Charact implements Comparable<Charact>{
 					}
 					first = first.getNex();
 				}
-				
-				
 			}
 			
-		}
-		 else if(first == null) {
+		} else if(first == null) {
 			 
 			throw new MyException("no existe esa tecnica");
 		 }
@@ -364,7 +362,7 @@ public class Charact implements Comparable<Charact>{
 	 * @param t a new technique
 	 * return upda
 	 */
-	public boolean updateTechniqueName(Technique t) throws MyException{
+	public boolean ModifyTechniqueName(Technique t) throws MyException{
 		Technique act = first;
 		boolean upda = false;
 		if(repetitiveTechnique(t)== false) {
@@ -389,7 +387,7 @@ public class Charact implements Comparable<Charact>{
 	 */
 	
 	
-	public boolean updateTechniqueFactor(Technique t) {
+	public boolean ModifyTechniqueFactor(Technique t) {
 		Technique act = first;
 		boolean upda = false;
 		if(!repetitiveTechnique(t)) {

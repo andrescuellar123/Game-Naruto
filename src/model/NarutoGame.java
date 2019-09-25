@@ -176,7 +176,7 @@ public class NarutoGame {
 	public boolean updateNameCharacter( Charact chara)throws MyException  {
 		boolean upda = false;
 		for(int i = 0; i < clan.size(); i++) {
-			if(clan.get(i).updateCharacterName(chara)) {
+			if(clan.get(i).ModifyCharacterName(chara)) {
 				upda = true;
 			}
 			else
@@ -193,7 +193,7 @@ public class NarutoGame {
 	public boolean updateCreationDate( Charact chara)throws MyException  {
 		boolean upda = false;
 		for(int i = 0; i < clan.size(); i++) {
-			if(clan.get(i).updateCharacterCreationDate(chara)) {
+			if(clan.get(i).ModifyCharacterCreationDate(chara)) {
 				upda = true;
 			}
 			else
@@ -210,7 +210,7 @@ public class NarutoGame {
 	public boolean updatePersonality( Charact chara)throws MyException  {
 		boolean upda = false;
 		for(int i = 0; i < clan.size(); i++) {
-			if(clan.get(i).updateCharacterPersonality(chara)) {
+			if(clan.get(i).ModifyCharacterPersonality(chara)) {
 				upda = true;
 			}
 			else
@@ -222,7 +222,7 @@ public class NarutoGame {
 	public boolean updatePower( Charact chara)throws MyException  {
 		boolean upda = false;
 		for(int i = 0; i < clan.size(); i++) {
-			if(clan.get(i).updatePower(chara)) {
+			if(clan.get(i).ModifyCharacterPower(chara)) {
 				upda = true;
 			}
 			else
@@ -265,7 +265,7 @@ public class NarutoGame {
 	public boolean updateTechniqueName(  Technique tec) throws MyException {
 		boolean upda = false;
 		for(int i = 0; i < clan.size(); i++) {
-			if(clan.get(i).updateTechniqueName(tec)) {
+			if(clan.get(i).ModifyTechniqueName(tec)) {
 				upda = true;
 			}
 			else
@@ -283,7 +283,7 @@ public class NarutoGame {
 	public boolean updateTechniqueFactor( Technique tec)throws MyException  {
 		boolean upda = false;
 		for(int i = 0; i < clan.size(); i++) {
-			if(clan.get(i).updateTechniqueFactor(tec)) {
+			if(clan.get(i).ModifyTechniqueFactor(tec)) {
 				upda = true;
 			}
 			else
