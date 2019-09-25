@@ -6,8 +6,8 @@ import java.util.Comparator;
 public class Technique implements Serializable {
 	private String name;
 	private double factor;
-	private Technique bef;
 	private Technique nex;
+	
 	
 	/**
 	 * @param name
@@ -19,19 +19,21 @@ public class Technique implements Serializable {
 		this.factor = factor;
 	}
 	
+	
 
 
 
 
 
 
-
+	
 	/**
 	 * @return the name
 	 */
 	public String getName() {
 		return name;
 	}
+
 
 
 
@@ -54,12 +56,14 @@ public class Technique implements Serializable {
 
 
 
+
 	/**
 	 * @return the factor
 	 */
 	public double getFactor() {
 		return factor;
 	}
+
 
 
 
@@ -77,34 +81,7 @@ public class Technique implements Serializable {
 
 
 
-
-
-
-
-
-	/**
-	 * @return the bef
-	 */
-	public Technique getBef() {
-		return bef;
-	}
-
-
-
-
-
-
-
-
-	/**
-	 * @param bef the bef to set
-	 */
-	public void setBef(Technique bef) {
-		this.bef = bef;
-	}
-
-
-
+	
 
 
 
@@ -124,6 +101,7 @@ public class Technique implements Serializable {
 
 
 
+
 	/**
 	 * @param nex the nex to set
 	 */
@@ -134,7 +112,7 @@ public class Technique implements Serializable {
 
 
 
-
+  
 
 
 
@@ -143,10 +121,7 @@ public class Technique implements Serializable {
 		return name.compareTo(t.getName());
 	}
 	
-	public double compareFactor(Technique t) {
-		
-		return factor - t.getFactor();
-	}
+
 	
 	
 
@@ -155,26 +130,37 @@ public class Technique implements Serializable {
 		return "Technique [name=" + name + ", factor=" + factor + "]";
 	}
 
-	
-	
-	
-	
-    public void addBTechnique( Technique tec ) throws MyException{
-    	//creo una tecnica?
-    	
-    	if(tec.compareName(tec)!=0) {
-    		
-    		tec.nex=nex;
-    		if( nex != null )
-    			nex.bef = tec;
-        		tec.bef = this;
-        		nex=tec;
-        		bef = tec;
-    	}else 
-    		throw new MyException("La tecnica tiene el mismo nombre");
-    	
-        
-    }
+
+
+
+
+
+
+
+
+	public Technique dobleSiguiente() {
+		return nex = nex.nex;
+		
+	}
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
 
     
 
