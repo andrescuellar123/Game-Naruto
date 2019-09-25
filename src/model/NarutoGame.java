@@ -160,7 +160,8 @@ public class NarutoGame {
 		boolean del = false;
 		for(int i = 0; i < clan.size() && del == true; i++) {
 			if(clan.get(i).repetitiveCharacter(chara)) {
-				del = clan.get(i).deleteCharcter(chara);
+				 clan.get(i).deleteCharcter(chara);
+				 del = true;
 			}
 			else
 				throw new MyException("no se puede borrar");
@@ -245,10 +246,10 @@ public class NarutoGame {
 	
 	public boolean addTechnique( String name , Technique tec, Charact charc) throws MyException {
 		boolean ad = false;
-		for(int i = 0; i < clan.size() && !ad; i++) {
+		for(int i = 0; i < clan.size() && ad == true; i++) {
 			if(clan.get(i).repetitiveCharacter(charc)) {
-				ad = clan.get(i).addTechnique(tec, name);
-				
+				 clan.get(i).addTechnique(tec, name);
+				 ad= true;
 			}
 			else
 				throw new MyException("no se puede aniadir");
@@ -256,22 +257,7 @@ public class NarutoGame {
 		return ad;
 	}
 	
-	/**
-	 * @param tec a new Technique
-	 * return del
-	 */
-	
-	public boolean deleteTechnique(Technique tec) throws MyException {
-		boolean del = false;
-		for(int i = 0; i < clan.size(); i++) {
-			if(clan.get(i).deleteTechnique(tec)) {
-				del = true;
-			}
-		}
-		
-		return del;
-	}
-	
+
 	/**
 	 * @param tec a new Technique
 	 * return upda
@@ -306,6 +292,23 @@ public class NarutoGame {
 		
 		return upda;
 	}
+	/**
+	 * @param tec a new Technique
+	 * return del
+	 */
+	
+	public boolean deleteTechnique(Technique tec) throws MyException {
+		boolean del = false;
+		for(int i = 0; i < clan.size(); i++) {
+			if(clan.get(i).deleteTechnique(tec)) {
+				del = true;
+			}			else
+				throw new MyException("no se puede borrar	");
+		}
+		
+		return del;
+	}
+	
 	
 	
 }

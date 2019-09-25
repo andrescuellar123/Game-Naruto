@@ -327,12 +327,27 @@ public class Charact implements Comparable<Charact>{
 			}
 			
 		}
-		 else 
-			 throw new MyException("no existe esa tecnica");
+		 else if(first == null) {
+			 
+			throw new MyException("no existe esa tecnica");
+		 }
 		return bor;
 	}
 	
+	//retorna las tecnicas (responsabilidades)
 	
+	/**
+	 * return upda
+	 */
+	public String techniquesOfTheCharacter() {
+		String ms = "";
+		Technique act = first;
+		while(act != null) {
+			ms += act + "  ";
+			act = act.getNex();
+		}
+		return ms;
+	}
 
 	
 	/**
@@ -349,18 +364,22 @@ public class Charact implements Comparable<Charact>{
 	 * @param t a new technique
 	 * return upda
 	 */
-	public boolean updateTechniqueName(Technique t) {
+	public boolean updateTechniqueName(Technique t) throws MyException{
 		Technique act = first;
 		boolean upda = false;
-		if(!repetitiveTechnique(t)) {
-			while(act != null && upda == true) {
-				if(act.getName().equals(t.getName())) {
-					act.setName(t.getName());
-					upda = true;
+		if(repetitiveTechnique(t)== false) {
+			if(act != null) {
+				while(act != null && upda == true) {
+					if(act.getName().equals(t.getName())) {
+						act.setName(t.getName());
+						upda = true;
+					}
+					act = act.getNex();
 				}
-				act = act.getNex();
 			}
 		}
+		else
+			throw new MyException("no se puede actualizar la tecnica");
 		return upda;
 	}
 	
@@ -387,20 +406,7 @@ public class Charact implements Comparable<Charact>{
 	
 	
 	
-	//retorna las tecnicas (responsabilidades)
-	
-	/**
-	 * return upda
-	 */
-	public String techniquesOfTheCharacter() {
-		String ms = "";
-		Technique act = first;
-		while(act != null) {
-			ms += act + "  ";
-			act = act.getNex();
-		}
-		return ms;
-	}
+
 	
 	
 	

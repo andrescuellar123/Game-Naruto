@@ -109,17 +109,20 @@ public class Clan {
 	
 	public boolean addCharacter(Charact chac) throws MyException {
 		boolean ad = false;
-		if(!repetitiveCharacter(chac)) {
-			if(first == null) {
-				first = chac;
-			}
-			else {
-				chac.setNext(first);
-				first.setBefore(chac);
-				first = chac;
-			}
+		
+		 if(repetitiveCharacter(chac) == false) {
+			chac.setNext(first);
+			first.setBefore(chac);
+			first = chac;
 			ad = true;
 		}
+		 else if(first == null) {
+				first = chac;
+				ad = true;
+			}
+
+			
+		
 		else {
 			throw new MyException("no se puede aniadir");
 		}
@@ -148,7 +151,7 @@ public class Clan {
 	 * return h
 	 */
 	
-	public boolean deleteCharcter(Charact charc) {
+	public boolean deleteCharcter(Charact charc) throws MyException{
 		
 		boolean h = false;
 		Charact act = first;
@@ -164,7 +167,7 @@ public class Clan {
 			}
 			h = true;
 		}
-		else {
+		else if(first != null && first.getName().equals(charc.getName()) == false) {
 			while(h == true  &&  act != null) {
 				
 				if(act.getName().equals(charc.getName())) {
@@ -180,6 +183,9 @@ public class Clan {
 				act = act.getNext();
 			}
 		}
+		
+		else if (first == null)
+			throw new MyException("no se puede borrar");
 		return h;
 	}
 	
@@ -190,17 +196,21 @@ public class Clan {
 	 * return upda
 	 */
 	
-	public boolean updateCharacterName(Charact t) {
+	public boolean updateCharacterName(Charact t) throws MyException{
 		Charact act = first;
 		boolean upda = false;
-		if(!repetitiveCharacter(t)) {
-			while(act != null && !upda) {
-				if(act.getName().equals(t.getName())) {
-					act.setName(t.getName());
-					upda = true;
+		if(repetitiveCharacter(t)== false) {
+			if(first !=null) {
+				while(act != null && !upda) {
+					if(act.getName().equals(t.getName())) {
+						act.setName(t.getName());
+						upda = true;
+					}
+					act = act.getNext();
 				}
-				act = act.getNext();
 			}
+			else if (first == null)
+				throw new MyException("no se puede actualizar");
 		}
 		return upda;
 	}
@@ -210,36 +220,44 @@ public class Clan {
 	 * return upda
 	 */
 	
-	public boolean updateCharacterPersonality(Charact t) {
+	public boolean updateCharacterPersonality(Charact t) throws MyException{
 		Charact act = first;
 		boolean upda = false;
-		if(!repetitiveCharacter(t)) {
-			while(act != null && !upda) {
-				if(act.getPersonality().equals(t.getPersonality())) {
-					act.setPersonality(t.getPersonality());
-					upda = true;
+		if(repetitiveCharacter(t)== false) {
+				if(first != null) {
+				while(act != null && !upda) {
+					if(act.getPersonality().equals(t.getPersonality())) {
+						act.setPersonality(t.getPersonality());
+						upda = true;
+					}
+					act = act.getNext();
 				}
-				act = act.getNext();
 			}
 		}
+		else if (first == null)
+			throw new MyException("no se puede actualizar");
 		return upda;
 	}
 	/**
 	 * @param t a new Charact
 	 * return upda
 	 */
-	public boolean updateCharacterCreationDate(Charact t) {
+	public boolean updateCharacterCreationDate(Charact t) throws MyException{
 		Charact act = first;
 		boolean upda = false;
-		if(!repetitiveCharacter(t)) {
-			while(act != null && !upda) {
-				if(act.getCreationDate().equals(t.getCreationDate())) {
-					act.setCreationDate(t.getCreationDate());
-					upda = true;
+		if(repetitiveCharacter(t)== false) {
+			if(first!= null) {
+				while(act != null && !upda) {
+					if(act.getCreationDate().equals(t.getCreationDate())) {
+						act.setCreationDate(t.getCreationDate());
+						upda = true;
+					}
+					act = act.getNext();
 				}
-				act = act.getNext();
 			}
 		}
+		else if (first == null)
+			throw new MyException("no se puede actualizar");
 		return upda;
 	}
 	
@@ -248,18 +266,22 @@ public class Clan {
 	 * return act
 	 */
 	
-	public boolean updatePower(Charact t) {
+	public boolean updatePower(Charact t)throws MyException {
 		Charact act = first;
 		boolean upda = false;
-		if(!repetitiveCharacter(t)) {
-			while(act != null && !upda) {
-				if(act.getPower()-t.getPower()!= 0) {
-					act.setPower(t.getPower());
-					upda = true;
+		if(first != null) {
+			if(!repetitiveCharacter(t)) {
+				while(act != null && !upda) {
+					if(act.getPower()-t.getPower()!= 0) {
+						act.setPower(t.getPower());
+						upda = true;
+					}
+					act = act.getNext();
 				}
-				act = act.getNext();
 			}
 		}
+		else if (first == null)
+			throw new MyException("no se puede actualizar");
 		return upda;
 	}
 	
@@ -306,17 +328,17 @@ public class Clan {
 	
 	public boolean deleteTechnique(Technique tec) {
 		boolean del = false;
-		Charact actual = first;
-		while(actual != null) {
+		Charact act= first;
+		while(act != null) {
 			try {
-				if(actual.deleteTechnique(tec)) {
+				if(act.deleteTechnique(tec)) {
 					del = true;
 				}
 			} catch (MyException e) {
 				
 				e.printStackTrace();
 			}
-			actual = actual.getNext();
+			act = act.getNext();
 		}
 		return del;
 	}
@@ -325,17 +347,20 @@ public class Clan {
 	 * return upda
 	 */
 	
-	public boolean updateTechniqueName(Technique t) {
+	public boolean updateTechniqueName(Technique t)throws MyException {
 		Charact act = first;
 		boolean upda = false;
-	
-			while(act != null && !upda) {
-				if(act.updateTechniqueName(t)) {
-					
-					upda = true;
+			if(act != null) {
+				while(act != null && !upda) {
+					if(act.updateTechniqueName(t)) {
+						
+						upda = true;
+					}
+					act = act.getNext();
 				}
-				act = act.getNext();
 			}
+			else
+				throw new MyException("no se puede actualizar la tecnica");
 		
 		return upda;
 	}
@@ -344,17 +369,20 @@ public class Clan {
 	 * return upda
 	 */
 	
-	public boolean updateTechniqueFactor(Technique t) {
+	public boolean updateTechniqueFactor(Technique t) throws MyException{
 		Charact act = first;
 		boolean upda = false;
-		
-			while(act != null && !upda) {
-				if(act.updateTechniqueFactor(t)) {
-					
-					upda = true;
+			if(act != null) {
+				while(act != null && !upda) {
+					if(act.updateTechniqueFactor(t)) {
+						
+						upda = true;
+					}
+					act = act.getNext();
 				}
-				act = act.getNext();
 			}
+			else
+				throw new MyException("no se puede actualizar la tecnica");
 		
 		return upda;
 	}
