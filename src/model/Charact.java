@@ -240,6 +240,11 @@ public class Charact implements Comparable<Charact>{
 	
 	//encontrar una tecnica por el nombre
 	
+	/**
+	 * @param nameTec a new name
+	 * return msj
+	 */
+	
     public String findName(String nameTec ){
     	Technique act =first;
     	String msj= "";
@@ -252,7 +257,10 @@ public class Charact implements Comparable<Charact>{
         return msj;
     }
     
-	
+	/**
+	 * @param tec a new technique
+	 * return b
+	 */
 	
 	public boolean addTechnique(Technique tec)throws MyException {
 		boolean b = false;
@@ -276,6 +284,11 @@ public class Charact implements Comparable<Charact>{
 		return b;
 	}
 	
+	/**
+	 * @param tec a new technique
+	 * return repetitive
+	 */
+	
 	public boolean repetitiveTechnique(Technique tec) {
 		boolean repetitive = false;
 		Technique act = first;
@@ -287,8 +300,11 @@ public class Charact implements Comparable<Charact>{
 		}
 		return repetitive;
 	}
-
 	
+	/**
+	 * @param tec a new technique
+	 * return bor
+	 */
 	
 	public boolean deleteTechnique( Technique tec) throws MyException {
 		
@@ -319,14 +335,20 @@ public class Charact implements Comparable<Charact>{
 	
 
 	
-    
+	/**
+	 * @param tec a new technique
+	 * return double
+	 */
     
     public double calculateFactor(Technique tec) {
  
     	return tec.getFactor()*power;
     }
 	
-    
+	/**
+	 * @param t a new technique
+	 * return upda
+	 */
 	public boolean updateTechniqueName(Technique t) {
 		Technique act = first;
 		boolean upda = false;
@@ -342,6 +364,10 @@ public class Charact implements Comparable<Charact>{
 		return upda;
 	}
 	
+	/**
+	 * @param t a new technique
+	 * return upda
+	 */
 	
 	
 	public boolean updateTechniqueFactor(Technique t) {
@@ -362,6 +388,10 @@ public class Charact implements Comparable<Charact>{
 	
 	
 	//retorna las tecnicas (responsabilidades)
+	
+	/**
+	 * return upda
+	 */
 	public String techniquesOfTheCharacter() {
 		String ms = "";
 		Technique act = first;

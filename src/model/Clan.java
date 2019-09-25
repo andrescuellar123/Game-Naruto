@@ -102,7 +102,10 @@ public class Clan {
 	 
 	
 	
-
+	/**
+	 * @param t a new Charact
+	 * return upda
+	 */
 	
 	public boolean addCharacter(Charact chac) throws MyException {
 		boolean ad = false;
@@ -123,6 +126,10 @@ public class Clan {
 		return ad;
 	}
 	
+	/**
+	 * @param t a new Charact
+	 * return repetitive
+	 */
 	
 	public boolean repetitiveCharacter(Charact charc) {
 		boolean repetitive = false;
@@ -136,14 +143,17 @@ public class Clan {
 		return repetitive;
 	}
 	
-	
+	/**
+	 * @param charc a new Charact
+	 * return h
+	 */
 	
 	public boolean deleteCharcter(Charact charc) {
 		
 		boolean h = false;
 		Charact act = first;
 		
-		if(first != null && first.getName().equals(charc.getName())) {
+		if(first != null && first.getName().equals(charc.getName()) == true) {
 			
 			first = first.getNext();
 			
@@ -175,6 +185,10 @@ public class Clan {
 	
 	
 	//update
+	/**
+	 * @param t a new Charact
+	 * return upda
+	 */
 	
 	public boolean updateCharacterName(Charact t) {
 		Charact act = first;
@@ -191,6 +205,10 @@ public class Clan {
 		return upda;
 	}
 	
+	/**
+	 * @param t a new Charact
+	 * return upda
+	 */
 	
 	public boolean updateCharacterPersonality(Charact t) {
 		Charact act = first;
@@ -206,7 +224,10 @@ public class Clan {
 		}
 		return upda;
 	}
-	
+	/**
+	 * @param t a new Charact
+	 * return upda
+	 */
 	public boolean updateCharacterCreationDate(Charact t) {
 		Charact act = first;
 		boolean upda = false;
@@ -222,6 +243,10 @@ public class Clan {
 		return upda;
 	}
 	
+	/**
+	 * @param t a new Charact
+	 * return act
+	 */
 	
 	public boolean updatePower(Charact t) {
 		Charact act = first;
@@ -242,7 +267,9 @@ public class Clan {
 	//responsabilidades tecnicas
 	
 	
-	
+	/**
+	 * return ms
+	 */
 	
 	public String theTechniques() {
 		String ms = "";
@@ -253,12 +280,16 @@ public class Clan {
 		}
 		return ms;
 	}
-	
-	public boolean addTechnique(Technique tec, String nameNinja) throws MyException {
+	/**
+	 * @param t a new technique
+	 * @param name a new name
+	 * return ad
+	 */
+	public boolean addTechnique(Technique tec, String name) throws MyException {
 		boolean ad = false;
 		Charact act = first;
 		while( ad==true && act != null ) {
-			if(act.getName().equals(nameNinja)) {
+			if(act.getName().equals(name)) {
 				ad = act.addTechnique(tec);
 				act = act.getNext();
 			}
@@ -267,6 +298,10 @@ public class Clan {
 		}
 		return ad;
 	}
+	/**
+	 * @param tec a new technique
+	 * return del
+	 */
 	
 	
 	public boolean deleteTechnique(Technique tec) {
@@ -285,6 +320,10 @@ public class Clan {
 		}
 		return del;
 	}
+	/**
+	 * @param t a new technique
+	 * return upda
+	 */
 	
 	public boolean updateTechniqueName(Technique t) {
 		Charact act = first;
@@ -300,6 +339,10 @@ public class Clan {
 		
 		return upda;
 	}
+	/**
+	 * @param t a new technique
+	 * return upda
+	 */
 	
 	public boolean updateTechniqueFactor(Technique t) {
 		Charact act = first;

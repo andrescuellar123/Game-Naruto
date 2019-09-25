@@ -134,7 +134,9 @@ public class Technique implements Serializable {
 
 
 
-
+	/** use this method to jump two times
+	 * return Technique
+	 */
 
 
 

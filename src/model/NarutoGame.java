@@ -20,6 +20,10 @@ public class NarutoGame {
 		this.clan = clan;
 	}
 	// Metdo para buscar cla 
+	/**
+	 * @param nameClan a new name of the Clan
+	 * return boolean finded
+	 */
 	
 	public boolean searchClan(String nameClan) {
 	
@@ -34,7 +38,10 @@ public class NarutoGame {
 		}
 	 return finded;
 	}
-	
+	/**
+	 * @param name a new name of the clan
+	 * return del
+	 */
 	public boolean deleteClan(String name)  {
 		boolean del = false;
 		for(int i = 0; i < clan.size() && del == true; i++) {
@@ -46,7 +53,10 @@ public class NarutoGame {
 		}
 		return del;
 	}
-	
+	/**
+	 * @param cla a new Clan
+	 * return repetitive
+	 */
 	public boolean repetitiveClan(Clan cla) {
 		boolean repetitive = false;
 		for(int i = 0; i < clan.size() && repetitive == true; i++) {
@@ -57,7 +67,8 @@ public class NarutoGame {
 		return repetitive;
 	}
 	
-	
+	/**este metodo organiza al clan por su nombre
+	 */
 	
 	public void organizeNameClan() {
 		for(int i = 0; i < clan.size();i++) {
@@ -74,6 +85,10 @@ public class NarutoGame {
 	
 	
 	//aniadir un clan
+	/**
+	 * @param cla a new Clan
+	 * return ad
+	 */
 	
 	public boolean addTheClans(Clan cla) throws MyException {
 		boolean ad = false;
@@ -87,6 +102,11 @@ public class NarutoGame {
 		}
 		return ad;
 	}
+	/**
+	 * @param cla a new Clan
+	 * @param changedName a new name
+	 * return upda
+	 */
 	
 	
 	public boolean updateClan( String changedName, Clan cla) throws MyException {
@@ -108,7 +128,11 @@ public class NarutoGame {
 	
 	
 	//responsabilidades Character
-	
+	/**
+	 * @param charc a new Charact
+	 * @param name a new name
+	 * return ad
+	 */
 	public boolean addCharacter( String name, Charact charc) throws MyException  {
 		boolean ad = false;
 		for(int i = 0; i < clan.size() && ad == true; i++) {
@@ -127,7 +151,10 @@ public class NarutoGame {
 		return ad;
 	}
 	
-	
+	/**
+	 * @param chara a new Charact
+	 * return del
+	 */
 	
 	public boolean deleteCharacter(Charact chara) throws MyException {
 		boolean del = false;
@@ -141,7 +168,10 @@ public class NarutoGame {
 		
 		return del;
 	}
-	
+	/**
+	 * @param chara a new Charact
+	 * return upda
+	 */
 	public boolean updateNameCharacter( Charact chara)throws MyException  {
 		boolean upda = false;
 		for(int i = 0; i < clan.size(); i++) {
@@ -154,7 +184,10 @@ public class NarutoGame {
 		
 		return upda;
 	}
-	
+	/**
+	 * @param chara a new Charact
+	 * return upda
+	 */
 	
 	public boolean updateCreationDate( Charact chara)throws MyException  {
 		boolean upda = false;
@@ -168,6 +201,10 @@ public class NarutoGame {
 		
 		return upda;
 	}
+	/**
+	 * @param chara a new Charact
+	 * return upda
+	 */
 	
 	public boolean updatePersonality( Charact chara)throws MyException  {
 		boolean upda = false;
@@ -199,20 +236,30 @@ public class NarutoGame {
 	
 	
 	//reponsabilidades tecnica
+	/**
+	 * @param tec a new Technique
+	 * @param name a new name
+	 * *@param charc a new Charact
+	 * return ad
+	 */
 	
 	public boolean addTechnique( String name , Technique tec, Charact charc) throws MyException {
-		boolean added = false;
-		for(int i = 0; i < clan.size() && !added; i++) {
+		boolean ad = false;
+		for(int i = 0; i < clan.size() && !ad; i++) {
 			if(clan.get(i).repetitiveCharacter(charc)) {
-				added = clan.get(i).addTechnique(tec, name);
+				ad = clan.get(i).addTechnique(tec, name);
 				
 			}
 			else
 				throw new MyException("no se puede aniadir");
 		}
-		return added;
+		return ad;
 	}
 	
+	/**
+	 * @param tec a new Technique
+	 * return del
+	 */
 	
 	public boolean deleteTechnique(Technique tec) throws MyException {
 		boolean del = false;
@@ -225,6 +272,10 @@ public class NarutoGame {
 		return del;
 	}
 	
+	/**
+	 * @param tec a new Technique
+	 * return upda
+	 */
 	public boolean updateTechniqueName(  Technique tec) throws MyException {
 		boolean upda = false;
 		for(int i = 0; i < clan.size(); i++) {
@@ -238,6 +289,10 @@ public class NarutoGame {
 		return upda;
 	}
 	
+	/**
+	 * @param tec a new Technique
+	 * return upda
+	 */
 	
 	public boolean updateTechniqueFactor( Technique tec)throws MyException  {
 		boolean upda = false;
